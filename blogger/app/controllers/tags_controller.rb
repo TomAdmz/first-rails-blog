@@ -3,6 +3,8 @@ class TagsController < ApplicationController
   		@tag = Tag.find(params[:id])
 	end
 
+	before_filter :require_login, only: [:destroy]
+
 	def index
 		@tags = Tag.all
 	end
